@@ -158,7 +158,7 @@ def main():
         print(json.dumps({k: rep[k] for k in ("S_median", "V_median", "identical_same_variants", "same_variants",
                                                 "nonconstant_columns", "decision_accuracy", "comparative_accuracy",
                                                 "exploratory_decision_accuracy_by_queried_position")}, indent=1),
-              "closure:", rep["closure_depth0"]["closed"], rep["closure_depth0"]["identical_on_lower_family"], rep["closure_depth0"]["separated_at_depth"])
+              "closure:", rep["closure_depth0"]["status"], rep["closure_depth0"]["identical_on_lower_family"], rep["closure_depth0"]["separated_at_depth"])
 
 
 if __name__ == "__main__":
