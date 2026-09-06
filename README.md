@@ -28,8 +28,14 @@ Audit 1b (option order in an LLM-as-judge, capital-city verification) is
 run and reported: `docs/AUDIT1B_RESULT.md`. Decisions are largely
 order-invariant for Qwen2.5-0.5B/1.5B; preferences among wrong candidates
 are not; no finite family tried is closed. Audit 1 (arithmetic) was
-uninformative because no model read it (`docs/AUDIT1_RESULT.md`). Next:
-document order in a RAG answerer (`docs/DESIGN.md`).
+uninformative because no model read it (`docs/AUDIT1_RESULT.md`).
+
+Audit 2 (document order in a RAG answerer, fictional entities) is run and
+reported: `docs/AUDIT2_RESULT.md`. Qwen2.5-0.5B reads the passages
+correctly at every position (no lost-in-the-middle effect), but reordering
+or duplicating them moves its preferences as much as changing the evidence
+(`V` 1.5); Qwen2.5-1.5B adds a NO bias whose decisions depend on where the
+evidence sits. No family tried is closed.
 
 ## Layout
 
