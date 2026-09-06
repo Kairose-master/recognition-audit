@@ -13,9 +13,9 @@ your model's answer logits, reads it through order relations only
   way (the one-sided statistic `S` of `proof-path-invariance`);
 - the beyond-accuracy statistic `V` on tests where correctness imposes
   nothing;
-- whether the finite test family is *closed* under one-step extension, i.e.
-  whether it has decided the question or needs a longer test, with the
-  witness (`recognition-paths`, `Identification.lean`).
+- whether a next-depth test separates rows that agreed on the sampled
+  lower-depth tests, with a separating witness. No observed separation
+  does not establish global closure (`Identification.lean`).
 
 The theory is in [recognition-paths](https://github.com/Kairose-master/recognition-paths)
 (Lean 4, machine-checked); the Horn-logic instrument and results are in
@@ -48,3 +48,12 @@ tests/                synthetic-recognizer tests (an invariant recognizer must s
 `AGENTS.md`: labels PROVED / OBSERVED / HYPOTHESIS / OPEN / CONFOUND;
 preregister before data; a non-reading control for every statistic; `S`
 is one-sided; identical profiles mean "not separated by these tests".
+
+
+## Interpretation and controls
+
+See `docs/IDENTIFICATION_SCOPE.md` for sampled versus global identification,
+the schema-v2 migration, and the finite-state proof obligations.
+`audit/adapters/horn.py` provides a deterministic definite-Horn semantic
+control, including conjunctions, facts, and cycles. It is an oracle control,
+not a learned recognizer. Run `python3 -m unittest discover -s tests`.
