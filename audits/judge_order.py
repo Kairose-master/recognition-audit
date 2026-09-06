@@ -31,6 +31,25 @@ from audit.stats import audit_report, closure_check             # noqa: E402
 
 N_BASES = 16
 
+CAPITALS = {"France": "Paris", "Germany": "Berlin", "Italy": "Rome", "Spain": "Madrid", "Japan": "Tokyo",
+            "Canada": "Ottawa", "Australia": "Canberra", "Brazil": "Brasilia", "Egypt": "Cairo", "Kenya": "Nairobi",
+            "Norway": "Oslo", "Sweden": "Stockholm", "Poland": "Warsaw", "Greece": "Athens", "Turkey": "Ankara",
+            "Mexico": "Mexico City"}
+
+
+def make_capital_bases(seed=0):
+    """Audit 1b: capital-city verification (readable by small instruction-tuned models)."""
+    rng = random.Random(seed)
+    caps = list(CAPITALS.values())
+    bases, meta = {}, {}
+    for i, (country, ans) in enumerate(CAPITALS.items()):
+        wrong = rng.sample([x for x in caps if x != ans], 5)
+        opts = [ans] + wrong[:3]; rng.shuffle(opts)
+        bid = f"c{i:02d}"
+        bases[bid] = opts
+        meta[bid] = {"question": f"What is the capital of {country}?", "answer": ans, "extra_wrong": wrong[3], "differ_wrong": wrong[4]}
+    return bases, meta
+
 
 def make_bases(seed=0):
     rng = random.Random(seed)
@@ -58,10 +77,11 @@ def main():
     ap = argparse.ArgumentParser(); ap.add_argument("cmd", choices=["build", "run", "report"])
     ap.add_argument("--cells"); ap.add_argument("--results"); ap.add_argument("--model"); ap.add_argument("--revision", default="main")
     ap.add_argument("--out", required=True); ap.add_argument("--threads", type=int, default=4)
+    ap.add_argument("--task", choices=["arithmetic", "capitals"], default="arithmetic")
     a = ap.parse_args()
 
     if a.cmd == "build":
-        bases, meta = make_bases()
+        bases, meta = make_bases() if a.task == "arithmetic" else make_capital_bases()
         cells = []
         for bid, opts in bases.items():
             m = meta[bid]
