@@ -11,7 +11,7 @@ Same design as Audit 1 (`docs/AUDIT1_PREREG.md`) with the arithmetic
 questions replaced by 16 capital-city questions and candidate capitals.
 144 rows (base, 5 permutations, 2 duplications, 1 correct-option
 replacement per question) × 8 cells = 1152 prompts; 20 Boolean tests per
-row. Calibration on gold-plus-noise: `S` 0.50, `V` 1.00, `E` 3 of 112.
+row. Calibration on gold-plus-noise: `S` 0.47, `V` 1.00, `E` 1 of 112 (corrected from a typo before any result was read; the arithmetic table gave 2).
 
 ## Recorded predictions
 
