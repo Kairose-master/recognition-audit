@@ -33,5 +33,7 @@ that move the supporting passage away from the end.
 ## What the audit will not claim
 
 Identical profiles are "not separated by these tests". `S < 1` is not
-invariance. A closed family decides the question only up to the declared
-equivalence; it says nothing about equivalences the user did not declare.
+invariance. No witness on sampled rows establishes only sampled stability. Global
+identification additionally requires the universal closure assumptions; see
+`IDENTIFICATION_SCOPE.md`.
+

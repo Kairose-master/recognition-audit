@@ -81,8 +81,9 @@ def test_accurate_noninvariant_is_not_identified():
     rep = audit_report(prof, free, meta)
     assert rep["identical_same_variants"] < rep["same_variants"]
     cc = closure_check(prof, cols, max_depth=1)
-    assert "closed" in cc
+    assert not cc["global_identification_established"]
 
 
 if __name__ == "__main__":
     test_set_invariant_scores_zero_on_syntactic_sames(); test_ideal_recognizer_scores_zero_on_all_sames(); test_accurate_noninvariant_is_not_identified(); print("ok")
+
