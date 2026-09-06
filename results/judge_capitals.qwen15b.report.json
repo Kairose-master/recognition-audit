@@ -1,0 +1,161 @@
+{
+  "S_median": 0.4,
+  "S_note": "one-sided: only S > 1 is diagnostic",
+  "nonconstant_columns": 20,
+  "columns": 20,
+  "V_median": 0.55,
+  "identical_same_variants": 40,
+  "same_variants": 112,
+  "per_base": {
+    "c00": {
+      "d_same": 1.0,
+      "d_differ": 1.0,
+      "S": 1.0,
+      "V": 1.0,
+      "n_same": 7,
+      "n_differ": 1
+    },
+    "c01": {
+      "d_same": 2.0,
+      "d_differ": 0.0,
+      "S": null,
+      "V": null,
+      "n_same": 7,
+      "n_differ": 1
+    },
+    "c02": {
+      "d_same": 1.0,
+      "d_differ": 0.0,
+      "S": null,
+      "V": null,
+      "n_same": 7,
+      "n_differ": 1
+    },
+    "c03": {
+      "d_same": 1.0,
+      "d_differ": 1.0,
+      "S": 1.0,
+      "V": 1.0,
+      "n_same": 7,
+      "n_differ": 1
+    },
+    "c04": {
+      "d_same": 0.0,
+      "d_differ": 1.0,
+      "S": 0.0,
+      "V": null,
+      "n_same": 7,
+      "n_differ": 1
+    },
+    "c05": {
+      "d_same": 1.0,
+      "d_differ": 4.0,
+      "S": 0.25,
+      "V": 0.25,
+      "n_same": 7,
+      "n_differ": 1
+    },
+    "c06": {
+      "d_same": 3.0,
+      "d_differ": 5.0,
+      "S": 0.6,
+      "V": 0.6,
+      "n_same": 7,
+      "n_differ": 1
+    },
+    "c07": {
+      "d_same": 2.0,
+      "d_differ": 6.0,
+      "S": 0.3333333333333333,
+      "V": 0.3333333333333333,
+      "n_same": 7,
+      "n_differ": 1
+    },
+    "c08": {
+      "d_same": 2.0,
+      "d_differ": 5.0,
+      "S": 0.4,
+      "V": 0.4,
+      "n_same": 7,
+      "n_differ": 1
+    },
+    "c09": {
+      "d_same": 1.0,
+      "d_differ": 3.0,
+      "S": 0.3333333333333333,
+      "V": null,
+      "n_same": 7,
+      "n_differ": 1
+    },
+    "c10": {
+      "d_same": 0.0,
+      "d_differ": 2.0,
+      "S": 0.0,
+      "V": 0.0,
+      "n_same": 7,
+      "n_differ": 1
+    },
+    "c11": {
+      "d_same": 2.0,
+      "d_differ": 1.0,
+      "S": 2.0,
+      "V": 2.0,
+      "n_same": 7,
+      "n_differ": 1
+    },
+    "c12": {
+      "d_same": 0.0,
+      "d_differ": 0.0,
+      "S": null,
+      "V": null,
+      "n_same": 7,
+      "n_differ": 1
+    },
+    "c13": {
+      "d_same": 1.0,
+      "d_differ": 1.0,
+      "S": 1.0,
+      "V": 1.0,
+      "n_same": 7,
+      "n_differ": 1
+    },
+    "c14": {
+      "d_same": 2.0,
+      "d_differ": 4.0,
+      "S": 0.5,
+      "V": 0.5,
+      "n_same": 7,
+      "n_differ": 1
+    },
+    "c15": {
+      "d_same": 0.0,
+      "d_differ": 2.0,
+      "S": 0.0,
+      "V": null,
+      "n_same": 7,
+      "n_differ": 1
+    }
+  },
+  "closure_depth0": {
+    "identical_on_lower_family": 673,
+    "separated_at_depth": 327,
+    "closed": false,
+    "witness": {
+      "rows": [
+        "c01-0132",
+        "c01-rev"
+      ],
+      "separating_columns": 3,
+      "column": [
+        "P",
+        "extra",
+        "v0",
+        "v2",
+        1
+      ]
+    }
+  },
+  "decision_accuracy": 0.9626736111111112,
+  "comparative_accuracy": 1.0,
+  "rows": 144
+}
