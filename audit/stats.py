@@ -45,7 +45,11 @@ def audit_report(profiles, free, rows_meta) -> dict:
                   "S": s, "V": v, "n_same": len(ds), "n_differ": len(dd)}
         if s is not None: S.append(s)
         if v is not None: V.append(v)
+    allrows = list(profiles)
+    mat = np.array([profiles[r] for r in allrows])
+    nonconst = int((mat.any(axis=0) & ~mat.all(axis=0)).sum()) if len(allrows) else 0
     return {"S_median": float(np.median(S)) if S else None, "S_note": "one-sided: only S > 1 is diagnostic",
+            "nonconstant_columns": nonconst, "columns": int(mat.shape[1]) if len(allrows) else 0,
             "V_median": float(np.median(V)) if V else None, "identical_same_variants": ident, "same_variants": total,
             "per_base": per}
 
