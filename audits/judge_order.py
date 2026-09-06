@@ -143,8 +143,9 @@ def main():
         Path(a.out).write_text(json.dumps(rep, indent=2, default=float) + "\n")
         print(json.dumps({k: rep[k] for k in ("S_median", "V_median", "identical_same_variants", "same_variants",
                                                 "decision_accuracy", "comparative_accuracy")}, indent=1),
-              "closure:", rep["closure_depth0"]["closed"], rep["closure_depth0"]["identical_on_lower_family"], rep["closure_depth0"]["separated_at_depth"])
+              "sampled refinement:", rep["closure_depth0"]["status"], rep["closure_depth0"]["identical_on_lower_family"], rep["closure_depth0"]["separated_at_depth"])
 
 
 if __name__ == "__main__":
     main()
+

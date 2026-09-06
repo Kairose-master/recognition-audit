@@ -55,11 +55,22 @@ def audit_report(profiles, free, rows_meta) -> dict:
 
 
 def closure_check(profiles, columns, max_depth: int) -> dict:
-    """Rows identical on columns of depth <= max_depth - 1 but separated at
-    depth max_depth: the depth-(max_depth-1) family is not closed, and the
-    separating column is the witness (Identification.lean)."""
+    """Check sampled depth refinement, not global contextual closure.
+
+    A witness separates sampled rows at the next depth. Absence of a
+    witness does not establish Lean's universally quantified Closed.
+    """
+    if isinstance(max_depth, bool) or not isinstance(max_depth, int) or max_depth < 1:
+        raise ValueError("max_depth must be a positive integer")
     d = np.array([c[-1] for c in columns])
+    if any(isinstance(c[-1], bool) or not isinstance(c[-1], int) or c[-1] < 0 for c in columns):
+        raise ValueError("column depths must be nonnegative integers")
     low, high = d <= max_depth - 1, d == max_depth
+    if not low.any() or not high.any():
+        raise ValueError("both lower-depth and next-depth columns are required")
+    profiles = {r: np.asarray(p) for r, p in profiles.items()}
+    if any(p.shape != (len(columns),) or p.dtype != np.dtype(bool) for p in profiles.values()):
+        raise ValueError("each profile must be a Boolean vector matching columns")
     rows = sorted(profiles)
     ident = viol = 0; witness = None
     for u, v in itertools.combinations(rows, 2):
@@ -72,4 +83,12 @@ def closure_check(profiles, columns, max_depth: int) -> dict:
                     k = int(np.argmax(profiles[u][high] != profiles[v][high]))
                     witness = {"rows": [u, v], "separating_columns": h,
                                "column": columns[np.where(high)[0][k]]}
-    return {"identical_on_lower_family": ident, "separated_at_depth": viol, "closed": viol == 0, "witness": witness}
+    status = ("separation_found" if viol else
+              "no_comparable_pairs" if ident == 0 else "no_separation_observed")
+    return {"schema_version": 2, "scope": "sampled_rows_and_columns",
+            "status": status, "global_identification_established": False,
+            "identical_on_lower_family": ident, "separated_at_depth": viol,
+            "sampled_stable": viol == 0, "vacuous": ident == 0,
+            "rows_checked": len(rows), "lower_columns": int(low.sum()),
+            "next_columns": int(high.sum()), "witness": witness}
+
