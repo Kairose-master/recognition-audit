@@ -1,0 +1,12 @@
+name: CI
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: pip install numpy
+      - run: python3 -m py_compile audit/*.py audit/equivalences/*.py audit/adapters/*.py
+      - run: python3 tests/test_synthetic.py
