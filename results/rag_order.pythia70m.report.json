@@ -1,0 +1,174 @@
+{
+  "S_median": 1.0,
+  "S_note": "one-sided: only S > 1 is diagnostic",
+  "nonconstant_columns": 12,
+  "columns": 20,
+  "V_median": 0.5,
+  "identical_same_variants": 46,
+  "same_variants": 112,
+  "per_base": {
+    "r00": {
+      "d_same": 1.0,
+      "d_differ": 0.0,
+      "S": null,
+      "V": null,
+      "n_same": 7,
+      "n_differ": 1
+    },
+    "r01": {
+      "d_same": 1.0,
+      "d_differ": 0.0,
+      "S": null,
+      "V": null,
+      "n_same": 7,
+      "n_differ": 1
+    },
+    "r02": {
+      "d_same": 1.0,
+      "d_differ": 0.0,
+      "S": null,
+      "V": null,
+      "n_same": 7,
+      "n_differ": 1
+    },
+    "r03": {
+      "d_same": 0.0,
+      "d_differ": 0.0,
+      "S": null,
+      "V": null,
+      "n_same": 7,
+      "n_differ": 1
+    },
+    "r04": {
+      "d_same": 0.0,
+      "d_differ": 1.0,
+      "S": 0.0,
+      "V": 0.0,
+      "n_same": 7,
+      "n_differ": 1
+    },
+    "r05": {
+      "d_same": 1.0,
+      "d_differ": 0.0,
+      "S": null,
+      "V": null,
+      "n_same": 7,
+      "n_differ": 1
+    },
+    "r06": {
+      "d_same": 2.0,
+      "d_differ": 1.0,
+      "S": 2.0,
+      "V": null,
+      "n_same": 7,
+      "n_differ": 1
+    },
+    "r07": {
+      "d_same": 1.0,
+      "d_differ": 0.0,
+      "S": null,
+      "V": null,
+      "n_same": 7,
+      "n_differ": 1
+    },
+    "r08": {
+      "d_same": 2.0,
+      "d_differ": 0.0,
+      "S": null,
+      "V": null,
+      "n_same": 7,
+      "n_differ": 1
+    },
+    "r09": {
+      "d_same": 1.0,
+      "d_differ": 1.0,
+      "S": 1.0,
+      "V": null,
+      "n_same": 7,
+      "n_differ": 1
+    },
+    "r10": {
+      "d_same": 1.0,
+      "d_differ": 1.0,
+      "S": 1.0,
+      "V": null,
+      "n_same": 7,
+      "n_differ": 1
+    },
+    "r11": {
+      "d_same": 0.0,
+      "d_differ": 0.0,
+      "S": null,
+      "V": null,
+      "n_same": 7,
+      "n_differ": 1
+    },
+    "r12": {
+      "d_same": 0.0,
+      "d_differ": 0.0,
+      "S": null,
+      "V": null,
+      "n_same": 7,
+      "n_differ": 1
+    },
+    "r13": {
+      "d_same": 1.0,
+      "d_differ": 0.0,
+      "S": null,
+      "V": null,
+      "n_same": 7,
+      "n_differ": 1
+    },
+    "r14": {
+      "d_same": 1.0,
+      "d_differ": 1.0,
+      "S": 1.0,
+      "V": 1.0,
+      "n_same": 7,
+      "n_differ": 1
+    },
+    "r15": {
+      "d_same": 0.0,
+      "d_differ": 0.0,
+      "S": null,
+      "V": null,
+      "n_same": 7,
+      "n_differ": 1
+    }
+  },
+  "closure_depth0": {
+    "schema_version": 2,
+    "scope": "sampled_rows_and_columns",
+    "status": "separation_found",
+    "global_identification_established": false,
+    "identical_on_lower_family": 604,
+    "separated_at_depth": 317,
+    "sampled_stable": false,
+    "vacuous": false,
+    "rows_checked": 144,
+    "lower_columns": 10,
+    "next_columns": 10,
+    "witness": {
+      "rows": [
+        "r08-0231",
+        "r09-0231"
+      ],
+      "separating_columns": 6,
+      "column": [
+        "P",
+        "extra",
+        "q0",
+        "q1",
+        1
+      ]
+    }
+  },
+  "decision_accuracy": 0.4722222222222222,
+  "comparative_accuracy": 0.475,
+  "exploratory_decision_accuracy_by_queried_position": {
+    "first": 0.7777777777777778,
+    "middle": 0.3888888888888889,
+    "last": 0.3333333333333333
+  },
+  "rows": 144
+}
